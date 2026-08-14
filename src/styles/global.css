@@ -156,6 +156,7 @@ body {
   border: 1px solid var(--color-line);
   @apply rounded-xl font-mono text-[13px] leading-relaxed shadow-2xl;
   box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.7);
+  font-variant-emoji: text; /* fuerza render tipografico de ✔ en Android */
 }
 
 .terminal-dot {
