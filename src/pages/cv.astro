@@ -1,0 +1,352 @@
+---
+// CV imprimible — fuente única de verdad del CV.
+// Diseño claro (para imprimir); el sitio principal mantiene el tema oscuro.
+import '../styles/global.css';
+
+const experiencia = [
+  {
+    rol: 'Coordinador de IT & Tech Lead',
+    empresa: 'Galilei Smart Solutions (GCS)',
+    lugar: 'Caracas, Venezuela',
+    periodo: 'Marzo 2025 – Actualidad',
+    bullets: [
+      'Migración on-prem → AWS con Terraform modular (12 módulos, 11 stacks): ECS Fargate, RDS SQL Server, EC2/IIS, S3 + CloudFront, SES, WAF; cutover < 15 min con runbooks y CI/CD con OIDC de GitHub Actions (sin credenciales de larga vida).',
+      'Diseño y operación de un orquestador de agentes de IA: sesiones autónomas de Claude Code que toman tickets de Linear, implementan, abren PR, atienden el review y mergean — con control de concurrencia, reintentos y contabilidad de costos.',
+      'Servidor MCP (Model Context Protocol) para SQL Server publicado como paquete npm del equipo: clasificación de sentencias seguras/peligrosas, auditoría automática en BD y backup previo de cada cambio.',
+      'Spec-Driven Development (spec-kit) adoptado en 6+ repositorios con enforcement automático en CI; autor de las guías y el playbook de adopción del equipo. Flujo AI-DLC de AWS con Claude Code y Gemini.',
+      'RAG e IA embebida en productos: búsqueda semántica, triage de tickets de helpdesk con Gemini y chatbot empresarial con tool-calling sobre BD multi-tenant, con límites de tokens, rate limiting y sanitización.',
+      'Guía de seguridad IA basada en OWASP LLM Top 10, OWASP Agentic y Zero Trust.',
+      'Coordinación de productos: Gali360 (web), GaliSales y Galimate (móvil), Gali BI (BI móvil) y WebApiBankHub (conciliación bancaria multi-banco). Code reviews, sprints y mentoría técnica.',
+    ],
+  },
+  {
+    rol: 'Senior Software Engineer (Remoto – Jornada Parcial)',
+    empresa: 'Naxmek Business S.R.L.',
+    lugar: 'República Dominicana',
+    periodo: 'Junio 2024 – Actualidad',
+    bullets: [
+      'Desarrollo de soluciones empresariales con .NET Core para mercado internacional.',
+      'Arquitectura y desarrollo de APIs REST escalables; mentoría y code review en equipo distribuido.',
+    ],
+  },
+  {
+    rol: 'Full Stack Developer',
+    empresa: 'Galilei Smart Solutions (GCS)',
+    lugar: 'Caracas, Venezuela',
+    periodo: 'Agosto 2022 – Marzo 2025',
+    bullets: [
+      'Co-desarrollo de Gali360 (Next.js, TypeScript, Supabase) y desarrollo completo de GaliSales y Galimate (React Native + Expo + Supabase), con publicación en Google Play Store.',
+      'Arquitectura de WebApiBankHub: API de conciliación bancaria automatizada con .NET (N-Capas), integrando múltiples bancos vía webhooks con HMAC-SHA256 y OAuth2.',
+      'Automatización con IA: verificación de pagos mediante procesamiento de imágenes y LLMs; chatbot de recordatorios en Telegram con NLP.',
+      'Integración de WhatsApp Flows de Meta con cifrado RSA-OAEP + AES-GCM; notificaciones en tiempo real con Socket.io; geolocalización con Google Maps Platform.',
+      'Optimización de SQL Server: Stored Procedures y Triggers para procesos críticos.',
+    ],
+  },
+  {
+    rol: 'Desarrollador Semi Senior',
+    empresa: 'KPMG C.A.',
+    lugar: 'Caracas, Venezuela',
+    periodo: 'Marzo 2021 – Julio 2022',
+    bullets: [
+      'Desarrollo en .NET 6 y Blazor: generador de tarjetas QR, eCommerce y sistema Servidesk con automatización de correos.',
+      'Migración de aplicaciones legacy desde ASP.NET MVC hacia Blazor.',
+    ],
+  },
+  {
+    rol: 'Analista de Sistemas',
+    empresa: 'PlanSuarez C.A.',
+    lugar: 'Caracas, Venezuela',
+    periodo: 'Febrero 2018 – Agosto 2021',
+    bullets: [
+      'Sistema de reportes con JavaScript y SQL Server; automatización de precios POS con paquetes DTS.',
+      'Migración SQL Server 2008 → 2019; integración SAP–POS; app móvil para lectores de precios.',
+    ],
+  },
+];
+
+const habilidades = [
+  {
+    grupo: 'IA & Automatización',
+    items:
+      'Claude Code, Anthropic API, Gemini, OpenAI API, Ollama, RAG, MCP (Model Context Protocol), Claude Skills, spec-kit, AI-DLC de AWS, Prompt Engineering, OWASP LLM / Agentic',
+  },
+  {
+    grupo: 'Backend & APIs',
+    items:
+      '.NET Core/Framework, C#, Node.js, Express.js, NestJS, TypeScript, RESTful APIs, GraphQL, Microservicios, Integraciones bancarias, SAP, Microsoft Dynamics GP',
+  },
+  {
+    grupo: 'Frontend & Mobile',
+    items: 'React, React Native, Expo, Next.js, Astro, Angular, Blazor, TailwindCSS',
+  },
+  {
+    grupo: 'Bases de Datos',
+    items:
+      'SQL Server, PostgreSQL, Supabase, MongoDB, MySQL, Entity Framework, Stored Procedures, Triggers',
+  },
+  {
+    grupo: 'Cloud & DevOps',
+    items:
+      'AWS (ECS Fargate, RDS, EC2, S3, CloudFront, SES, WAF, Secrets Manager, IAM/OIDC, CloudWatch), Terraform, Docker, GitHub Actions CI/CD, Nginx, PM2, Linux, Vercel',
+  },
+  {
+    grupo: 'Arquitectura & Metodologías',
+    items:
+      'Clean Architecture, N-Capas, DDD, SOLID, Repository, Unit of Work, DI, Scrum, Code Reviews, Branch Protection, Spec-Driven Development',
+  },
+];
+
+const educacion = [
+  {
+    titulo: 'Ingeniería Informática',
+    inst: 'Universidad Alejandro de Humboldt',
+    detalle: 'Caracas, Venezuela · 10mo Semestre (En curso)',
+  },
+  {
+    titulo: 'T.S.U. en Informática',
+    inst: 'Instituto Universitario de Tecnología (IUTA)',
+    detalle: 'Caracas, Venezuela · Graduado Junio 2019',
+  },
+  {
+    titulo: 'Certificación en Administración',
+    inst: 'Instituto Adiestra – INCES',
+    detalle: 'Caracas, Venezuela · 2019',
+  },
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV — Enderson Montaña</title>
+    <meta name="description" content="Currículum de Enderson Montaña — Coordinador de IT & Tech Lead, especialista en integración de IA." />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      /* CV: documento claro e imprimible, independiente del tema del sitio */
+      .cv-page {
+        background: #ffffff;
+        color: #1a2233;
+        font-family: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+        line-height: 1.45;
+      }
+      .cv-sheet {
+        max-width: 51rem;
+        margin: 0 auto;
+        padding: 2.5rem 2rem;
+      }
+      .cv-name {
+        font-size: 1.9rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        text-align: center;
+      }
+      .cv-headline {
+        text-align: center;
+        font-weight: 600;
+        color: #3b5bdb;
+        margin-top: 0.25rem;
+      }
+      .cv-contact {
+        text-align: center;
+        font-size: 0.85rem;
+        color: #4a5568;
+        margin-top: 0.5rem;
+      }
+      .cv-contact a {
+        color: #3b5bdb;
+        text-decoration: none;
+      }
+      .cv-section {
+        margin-top: 1.6rem;
+      }
+      .cv-section > h2 {
+        font-size: 0.95rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #1a2233;
+        border-bottom: 2px solid #3b5bdb;
+        padding-bottom: 0.3rem;
+        margin-bottom: 0.9rem;
+      }
+      .cv-job {
+        margin-bottom: 1.1rem;
+        break-inside: avoid;
+      }
+      .cv-job-head {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0 1rem;
+      }
+      .cv-job-head h3 {
+        font-size: 1rem;
+        font-weight: 700;
+      }
+      .cv-job-head .cv-empresa {
+        color: #3b5bdb;
+        font-weight: 600;
+      }
+      .cv-job-meta {
+        font-size: 0.82rem;
+        color: #4a5568;
+        font-style: italic;
+      }
+      .cv-job ul {
+        margin-top: 0.4rem;
+        padding-left: 1.1rem;
+        list-style: disc;
+      }
+      .cv-job li,
+      .cv-skill,
+      .cv-edu p {
+        font-size: 0.88rem;
+      }
+      .cv-job li {
+        margin-bottom: 0.25rem;
+      }
+      .cv-skill {
+        margin-bottom: 0.4rem;
+      }
+      .cv-skill strong {
+        color: #1a2233;
+      }
+      .cv-edu {
+        margin-bottom: 0.7rem;
+      }
+      .cv-edu h3 {
+        font-size: 0.95rem;
+        font-weight: 700;
+        display: inline;
+      }
+      .cv-edu .cv-empresa {
+        color: #3b5bdb;
+        font-weight: 600;
+      }
+      .cv-perfil {
+        font-size: 0.9rem;
+      }
+      .cv-toolbar {
+        position: sticky;
+        top: 0;
+        background: #0b0f1a;
+        padding: 0.75rem 1rem;
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+      .cv-toolbar a,
+      .cv-toolbar button {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.8rem;
+        padding: 0.45rem 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid #1e2a45;
+        color: #e2e8f5;
+        background: transparent;
+        cursor: pointer;
+      }
+      .cv-toolbar button {
+        background: linear-gradient(92deg, #7aa2f7, #bb9af7);
+        color: #0b0f1a;
+        border: none;
+        font-weight: 700;
+      }
+      @media print {
+        .cv-toolbar {
+          display: none;
+        }
+        .cv-sheet {
+          padding: 0;
+        }
+        @page {
+          margin: 14mm 12mm;
+        }
+      }
+    </style>
+  </head>
+  <body class="cv-page">
+    <div class="cv-toolbar">
+      <a href="/">← volver al portafolio</a>
+      <button onclick="window.print()">Imprimir / Guardar PDF</button>
+      <a href="/cv/Enderson-Montana-CV.pdf" download>Descargar PDF</a>
+    </div>
+
+    <main class="cv-sheet">
+      <header>
+        <h1 class="cv-name">ENDERSON JOSÉ MONTAÑA MORENO</h1>
+        <p class="cv-headline">Coordinador de IT & Tech Lead · Especialista en Integración de IA</p>
+        <p class="cv-contact">
+          Venezuela · +58 424-2857739 · <a href="mailto:enderson_josep@hotmail.com">enderson_josep@hotmail.com</a><br />
+          <a href="https://linkedin.com/in/enderson-montana">linkedin.com/in/enderson-montana</a> ·
+          <a href="https://github.com/ejmontana">github.com/ejmontana</a> ·
+          <a href="https://ejmontana.github.io">ejmontana.github.io</a>
+        </p>
+      </header>
+
+      <section class="cv-section">
+        <h2>Perfil Profesional</h2>
+        <p class="cv-perfil">
+          Full Stack Developer con 8 años de experiencia, especializado en backend y arquitecturas
+          escalables con .NET, Node.js y SQL Server. Actualmente Coordinador de IT y Tech Lead:
+          lidero la migración de la plataforma de la empresa a AWS con Terraform y la integración de
+          IA en el ciclo de desarrollo — agentes autónomos sobre Claude Code, servidores MCP, RAG y
+          Spec-Driven Development con enforcement en CI. Experto en integraciones bancarias y
+          empresariales (SAP, Dynamics GP), CI/CD y patrones arquitectónicos (Clean Architecture,
+          N-Capas).
+        </p>
+      </section>
+
+      <section class="cv-section">
+        <h2>Experiencia Profesional</h2>
+        {
+          experiencia.map((job) => (
+            <article class="cv-job">
+              <div class="cv-job-head">
+                <h3>
+                  <span class="cv-empresa">{job.empresa}</span> | {job.rol}
+                </h3>
+              </div>
+              <p class="cv-job-meta">
+                {job.lugar} · {job.periodo}
+              </p>
+              <ul>
+                {job.bullets.map((b) => (
+                  <li>{b}</li>
+                ))}
+              </ul>
+            </article>
+          ))
+        }
+      </section>
+
+      <section class="cv-section">
+        <h2>Habilidades Técnicas</h2>
+        {
+          habilidades.map((h) => (
+            <p class="cv-skill">
+              <strong>{h.grupo}:</strong> {h.items}
+            </p>
+          ))
+        }
+      </section>
+
+      <section class="cv-section">
+        <h2>Educación</h2>
+        {
+          educacion.map((e) => (
+            <div class="cv-edu">
+              <h3>
+                <span class="cv-empresa">{e.inst}</span> | {e.titulo}
+              </h3>
+              <p>{e.detalle}</p>
+            </div>
+          ))
+        }
+      </section>
+    </main>
+  </body>
+</html>
