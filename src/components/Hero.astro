@@ -1,9 +1,4 @@
 ---
-const stats = [
-  { prefix: '', value: '8', suffix: '+', label: 'años construyendo software' },
-  { prefix: '', value: '5', suffix: '', label: 'productos en producción hoy' },
-  { prefix: '<', value: '15', suffix: ' min', label: 'de cutover en la migración a AWS' },
-];
 ---
 
 <section id="inicio" class="relative overflow-hidden pt-16">
@@ -98,65 +93,5 @@ const stats = [
     </div>
   </div>
 
-  <!-- Stats -->
-  <div class="border-y border-(--color-line) bg-(--color-surface)/50">
-    <div class="container-site grid grid-cols-1 sm:grid-cols-3">
-      {
-        stats.map((stat, i) => (
-          <div
-            class:list={[
-              'px-4 py-9 text-center transition-colors hover:bg-(--color-blue)/5',
-              i > 0 && 'border-t border-(--color-line) sm:border-t-0 sm:border-l',
-            ]}
-            data-reveal
-          >
-            <p class="font-mono text-5xl font-bold tracking-tight">
-              {stat.prefix && <span class="text-(--color-dim)">{stat.prefix} </span>}<span
-                class="text-gradient stat-count"
-                data-target={stat.value}>0</span
-              ><span class="text-(--color-dim)">{stat.suffix}</span>
-            </p>
-            <p class="mt-3 font-mono text-[11px] tracking-[0.2em] text-(--color-dim) uppercase">
-              {stat.label}
-            </p>
-          </div>
-        ))
-      }
-    </div>
-  </div>
+  <div class="border-b border-(--color-line)"></div>
 </section>
-
-<script>
-  // Conteo animado al entrar en viewport; instantáneo si el usuario prefiere menos movimiento
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
-
-  const animate = (el: HTMLElement) => {
-    const target = parseInt(el.dataset.target ?? '0', 10);
-    if (reduceMotion) {
-      el.textContent = String(target);
-      return;
-    }
-    const duration = 1100;
-    const start = performance.now();
-    const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      el.textContent = String(Math.round(easeOut(progress) * target));
-      if (progress < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  };
-
-  const counter = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          animate(entry.target as HTMLElement);
-          counter.unobserve(entry.target);
-        }
-      }
-    },
-    { threshold: 0.4 }
-  );
-  document.querySelectorAll<HTMLElement>('.stat-count').forEach((el) => counter.observe(el));
-</script>
