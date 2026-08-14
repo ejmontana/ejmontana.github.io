@@ -1,0 +1,66 @@
+---
+const intereses = [
+  'series y películas',
+  'videojuegos',
+  'animales',
+  'buena comida',
+  'ejercicio (recién descubierto)',
+];
+
+const aprendiendo = ['AWS', 'inglés'];
+---
+
+<section id="sobre-mi" class="py-20 lg:py-28">
+  <div class="container-site grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-center">
+    <div>
+      <p class="eyebrow" data-reveal>// Sobre mí</p>
+      <h2 class="mt-3 text-3xl font-bold sm:text-4xl" data-reveal>
+        Todo empezó con un <span class="text-gradient">servidor de Minecraft.</span>
+      </h2>
+      <div class="mt-6 space-y-4 text-lg leading-relaxed text-(--color-dim)" data-reveal>
+        <p>
+          Configurando plugins y peleando con archivos de configuración a medianoche descubrí que
+          me gustaba más <strong class="text-(--color-text)">construir el juego que jugarlo</strong>.
+          De ahí no paré: ese servidor se convirtió en una carrera de 8 años construyendo software
+          y liderando equipos.
+        </p>
+        <p>
+          Fuera del código soy bastante simple: una buena serie o una película, una partida de
+          videojuegos (esa costumbre no se quita), los animales, la buena comida — y últimamente
+          estoy descubriendo, para mi propia sorpresa, que
+          <strong class="text-(--color-text)">me gusta hacer ejercicio</strong>.
+        </p>
+        <p>
+          Me encanta la tecnología en todas sus formas, y creo que esa curiosidad de aquel
+          adolescente con su servidor de Minecraft es la misma que hoy me tiene armando pipelines
+          de agentes de IA.
+        </p>
+      </div>
+    </div>
+
+    <div class="space-y-4" data-reveal>
+      <div class="card p-6">
+        <h3 class="font-mono text-sm font-semibold tracking-wide text-(--color-blue)">
+          me vas a encontrar en
+        </h3>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {intereses.map((item) => <span class="chip">{item}</span>)}
+        </div>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-mono text-sm font-semibold tracking-wide text-(--color-green)">
+          aprendiendo ahora mismo
+        </h3>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {aprendiendo.map((item) => <span class="chip-green chip">{item}</span>)}
+        </div>
+      </div>
+      <div class="terminal">
+        <div class="space-y-1 px-5 py-4">
+          <p><span class="text-(--color-green)">$</span> <span class="text-(--color-text)">whoami</span></p>
+          <p class="text-(--color-dim)">dev desde los servidores de Minecraft · humano el resto del tiempo</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
