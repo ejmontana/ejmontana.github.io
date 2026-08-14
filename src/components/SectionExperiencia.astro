@@ -1,0 +1,141 @@
+---
+const jobs = [
+  {
+    role: 'Coordinador de Proyectos & Tech Lead',
+    company: 'Galilei Smart Solutions (GCS)',
+    place: 'Caracas, Venezuela',
+    period: 'Mar 2025 — Actualidad',
+    current: true,
+    bullets: [
+      'Liderazgo técnico y coordinación de equipos Full Stack en proyectos empresariales end-to-end: Gali360 (web), GaliSales y Galimate (móvil) y WebApiBankHub (conciliación bancaria).',
+      'Definí el stack de desarrollo asistido por IA del equipo (AI-DLC de AWS con Claude Code y Gemini) sobre monorepos NestJS / Next.js / React Native.',
+      'Diseño y operación de servidores MCP integrados con Linear, GitHub y los entornos internos; Claude Skills especializadas para estandarizar tareas del equipo.',
+      'RAG e IA embebida en productos: búsqueda semántica, clasificación y generación asistida.',
+      'Guía de seguridad IA basada en OWASP LLM Top 10, OWASP Agentic y Zero Trust.',
+      'CI/CD con GitHub Actions, branch protection, code reviews, sprints y mentoría técnica.',
+    ],
+  },
+  {
+    role: 'Senior Software Engineer',
+    company: 'Naxmek Business S.R.L.',
+    place: 'República Dominicana · Remoto, jornada parcial',
+    period: 'Jun 2024 — Actualidad',
+    current: true,
+    bullets: [
+      'Soluciones empresariales con .NET Core para mercado internacional.',
+      'Arquitectura de APIs REST escalables; mentoría y code review en equipo distribuido.',
+    ],
+  },
+  {
+    role: 'Full Stack Developer',
+    company: 'Galilei Smart Solutions (GCS)',
+    place: 'Caracas, Venezuela',
+    period: 'Ago 2022 — Mar 2025',
+    current: false,
+    bullets: [
+      'Co-desarrollo de Gali360 (Next.js, TypeScript, Supabase) y desarrollo completo de GaliSales y Galimate (React Native + Expo), publicadas en Google Play Store.',
+      'Arquitectura de WebApiBankHub: conciliación bancaria automatizada en .NET integrando múltiples bancos vía APIs.',
+      'Automatización con IA: verificación de pagos con procesamiento de imágenes y LLMs; chatbot de recordatorios en Telegram con NLP.',
+      'Notificaciones en tiempo real con Socket.io; geolocalización con Google Maps Platform; optimización de SQL Server con SPs y triggers.',
+    ],
+  },
+  {
+    role: 'Desarrollador Semi Senior',
+    company: 'KPMG C.A.',
+    place: 'Caracas, Venezuela',
+    period: 'Mar 2021 — Jul 2022',
+    current: false,
+    bullets: [
+      'Desarrollo en .NET 6 y Blazor: generador de tarjetas QR, eCommerce y sistema Servidesk con automatización de correos.',
+      'Migración de aplicaciones legacy desde ASP.NET MVC hacia Blazor.',
+    ],
+  },
+  {
+    role: 'Analista de Sistemas',
+    company: 'PlanSuarez C.A.',
+    place: 'Caracas, Venezuela',
+    period: 'Feb 2018 — Ago 2021',
+    current: false,
+    bullets: [
+      'Sistema de reportes con JavaScript y SQL Server; automatización de precios POS con paquetes DTS.',
+      'Migración SQL Server 2008 → 2019; integración SAP–POS; app móvil para lectores de precios.',
+    ],
+  },
+];
+
+const education = [
+  {
+    title: 'Ingeniería Informática',
+    institution: 'Universidad Alejandro de Humboldt',
+    detail: '10mo semestre · En curso',
+  },
+  {
+    title: 'T.S.U. en Informática',
+    institution: 'Instituto Universitario de Tecnología (IUTA)',
+    detail: 'Graduado · Junio 2019',
+  },
+  {
+    title: 'Certificación en Administración',
+    institution: 'Instituto Adiestra — INCES',
+    detail: '2019',
+  },
+];
+---
+
+<section id="experiencia" class="py-20 lg:py-28">
+  <div class="container-site">
+    <p class="eyebrow" data-reveal>// Trayectoria</p>
+    <h2 class="mt-3 text-3xl font-bold sm:text-4xl" data-reveal>
+      8 años del POS al <span class="text-gradient">pipeline de agentes.</span>
+    </h2>
+
+    <div class="mt-12 grid gap-12 lg:grid-cols-[1.5fr_1fr]">
+      <!-- Timeline -->
+      <div class="timeline space-y-10 pl-9">
+        {
+          jobs.map((job) => (
+            <article class="relative" data-reveal>
+              <span class="timeline-dot" style={job.current ? '' : 'border-color: var(--color-line);'} aria-hidden="true"></span>
+              <header class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h3 class="text-lg font-bold">{job.role}</h3>
+                {job.current && <span class="chip-green chip !text-[11px]">actual</span>}
+              </header>
+              <p class="mt-1 text-sm text-(--color-dim)">
+                <span class="font-semibold text-(--color-blue)">{job.company}</span> · {job.place}
+              </p>
+              <p class="font-mono text-xs text-(--color-dim)">{job.period}</p>
+              <ul class="mt-3 space-y-2">
+                {job.bullets.map((bullet) => (
+                  <li class="flex gap-2.5 text-sm leading-relaxed text-(--color-dim)">
+                    <span class="mt-0.5 text-(--color-blue)" aria-hidden="true">
+                      ▸
+                    </span>
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+
+      <!-- Educación -->
+      <aside data-reveal>
+        <h3 class="font-mono text-sm font-semibold tracking-widest text-(--color-purple) uppercase">
+          Educación
+        </h3>
+        <div class="mt-5 space-y-4">
+          {
+            education.map((item) => (
+              <div class="card p-5">
+                <h4 class="font-bold">{item.title}</h4>
+                <p class="mt-1 text-sm text-(--color-dim)">{item.institution}</p>
+                <p class="mt-1 font-mono text-xs text-(--color-dim)">{item.detail}</p>
+              </div>
+            ))
+          }
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-(--color-line) py-8">
+  <div
+    class="container-site flex flex-col items-center justify-between gap-3 text-center sm:flex-row"
+  >
+    <p class="font-mono text-xs text-(--color-dim)">
+      © {year} Enderson Montaña · Hecho con
+      <a
+        href="https://astro.build"
+        target="_blank"
+        rel="noopener"
+        class="text-(--color-blue) hover:underline">Astro</a
+      > y desplegado con GitHub Actions
+    </p>
+    <p class="font-mono text-xs text-(--color-dim)">
+      <a href="https://github.com/ejmontana/ejmontana.github.io" target="_blank" rel="noopener" class="hover:text-(--color-text)">
+        ver el código de este sitio →
+      </a>
+    </p>
+  </div>
+</footer>

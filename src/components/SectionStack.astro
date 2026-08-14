@@ -1,0 +1,83 @@
+---
+const groups = [
+  {
+    name: 'IA & Automatización',
+    accent: 'chip-purple chip',
+    items: [
+      'Claude Code',
+      'Anthropic API',
+      'Gemini',
+      'OpenAI API',
+      'Ollama',
+      'MCP',
+      'RAG',
+      'Claude Skills',
+      'AI-DLC de AWS',
+      'Prompt Engineering',
+      'OWASP LLM / Agentic',
+    ],
+  },
+  {
+    name: 'Backend & APIs',
+    accent: 'chip',
+    items: [
+      '.NET Core / Framework',
+      'C#',
+      'Node.js',
+      'NestJS',
+      'Express',
+      'TypeScript',
+      'REST',
+      'GraphQL',
+      'Microservicios',
+      'Integraciones bancarias',
+    ],
+  },
+  {
+    name: 'Frontend & Mobile',
+    accent: 'chip',
+    items: ['React', 'Next.js', 'React Native', 'Expo', 'Angular', 'Blazor', 'Astro', 'TailwindCSS'],
+  },
+  {
+    name: 'Bases de datos',
+    accent: 'chip',
+    items: ['SQL Server', 'PostgreSQL', 'Supabase', 'MongoDB', 'MySQL', 'Entity Framework', 'Stored Procedures'],
+  },
+  {
+    name: 'Cloud & DevOps',
+    accent: 'chip-green chip',
+    items: ['AWS', 'Terraform', 'Docker', 'GitHub Actions', 'Nginx', 'PM2', 'Linux', 'Vercel', 'Digital Ocean'],
+  },
+  {
+    name: 'Arquitectura & Metodologías',
+    accent: 'chip',
+    items: ['Clean Architecture', 'N-Capas', 'DDD', 'SOLID', 'Repository / UoW', 'Scrum', 'Code Reviews', 'Spec-Driven Development'],
+  },
+];
+---
+
+<section id="stack" class="py-20 lg:py-28">
+  <div class="container-site">
+    <p class="eyebrow" data-reveal>// Stack</p>
+    <h2 class="mt-3 text-3xl font-bold sm:text-4xl" data-reveal>
+      Herramientas para cada capa <span class="text-gradient">del problema.</span>
+    </h2>
+
+    <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        groups.map((group) => (
+          <div class="card p-6" data-reveal>
+            <h3 class="font-mono text-sm font-semibold tracking-wide text-(--color-blue)">
+              {group.name}
+            </h3>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <span class={group.accent}>{item}</span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

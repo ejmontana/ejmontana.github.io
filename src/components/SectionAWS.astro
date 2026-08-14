@@ -1,0 +1,86 @@
+---
+const groups = [
+  {
+    name: 'Cómputo',
+    items: ['ECS Fargate', 'ECR', 'EC2 Windows/IIS', 'Auto Scaling'],
+  },
+  {
+    name: 'Red y entrega',
+    items: ['VPC', 'ALB', 'S3 + CloudFront', 'Route 53', 'ACM', 'VPN site-to-site'],
+  },
+  {
+    name: 'Datos',
+    items: ['RDS for SQL Server', 'S3 backup/restore nativo', 'EFS'],
+  },
+  {
+    name: 'Seguridad',
+    items: ['WAF', 'Secrets Manager', 'IAM + OIDC de GitHub Actions'],
+  },
+  {
+    name: 'Operación',
+    items: ['CloudWatch', 'SNS', 'SES v2', 'Budgets', 'SSM'],
+  },
+];
+---
+
+<section id="aws" class="border-y border-(--color-line) bg-(--color-surface)/40 py-20 lg:py-28">
+  <div class="container-site grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-start">
+    <div>
+      <p class="eyebrow" data-reveal>// AWS · Infraestructura como Código</p>
+      <h2 class="mt-3 text-3xl font-bold sm:text-4xl" data-reveal>
+        Migración on-prem → AWS, <span class="text-gradient">por fases y sin drama.</span>
+      </h2>
+      <p class="mt-4 leading-relaxed text-(--color-dim)" data-reveal>
+        Lideré la migración de la plataforma de la empresa a AWS con <strong class="text-(--color-text)">Terraform modular</strong>:
+        12 módulos reutilizables y 11 stacks con state independiente, para que cada
+        <code class="font-mono text-sm text-(--color-blue)">apply</code> toque una sola capa.
+      </p>
+      <ul class="mt-6 space-y-3" data-reveal>
+        <li class="flex gap-2.5 text-(--color-dim)">
+          <span class="mt-0.5 text-(--color-green)" aria-hidden="true">▸</span>
+          <span>
+            <strong class="text-(--color-text)">Cutover &lt; 15 min</strong>: SQL Server on-prem →
+            RDS con backup/restore nativo desde S3, runbooks ensayados y flip de DNS reversible.
+          </span>
+        </li>
+        <li class="flex gap-2.5 text-(--color-dim)">
+          <span class="mt-0.5 text-(--color-green)" aria-hidden="true">▸</span>
+          <span>
+            <strong class="text-(--color-text)">Cero credenciales de larga vida</strong>: los deploys
+            de 6 repos entran por roles IAM con OIDC de GitHub Actions.
+          </span>
+        </li>
+        <li class="flex gap-2.5 text-(--color-dim)">
+          <span class="mt-0.5 text-(--color-green)" aria-hidden="true">▸</span>
+          <span>
+            <strong class="text-(--color-text)">FinOps desde el día uno</strong>: alarmas de
+            CloudWatch, presupuestos y análisis de costo mensual documentado.
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2" data-reveal>
+      {
+        groups.map((group) => (
+          <div class="card p-5">
+            <h3 class="font-mono text-sm font-semibold tracking-wide text-(--color-blue)">
+              {group.name}
+            </h3>
+            <div class="mt-3 flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <span class="chip">{item}</span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+      <div class="card flex items-center justify-center p-5 text-center">
+        <p class="font-mono text-sm text-(--color-dim)">
+          <span class="text-2xl font-bold text-(--color-text)">21</span>
+          <br />servicios AWS declarados en Terraform
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,58 @@
+---
+const links = [
+  { href: '#ia', label: 'IA' },
+  { href: '#aws', label: 'AWS' },
+  { href: '#experiencia', label: 'Experiencia' },
+  { href: '#proyectos', label: 'Proyectos' },
+  { href: '#stack', label: 'Stack' },
+  { href: '#contacto', label: 'Contacto' },
+];
+---
+
+<header
+  class="fixed inset-x-0 top-0 z-50 border-b border-(--color-line) bg-(--color-ink)/80 backdrop-blur-md"
+>
+  <nav class="container-site flex h-16 items-center justify-between" aria-label="Principal">
+    <a href="#inicio" class="font-mono text-sm font-bold tracking-tight">
+      <span class="text-(--color-dim)">~/</span><span class="text-gradient">emontana</span><span
+        class="text-(--color-green)">_</span
+      >
+    </a>
+
+    <ul class="hidden items-center gap-6 md:flex">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="text-sm text-(--color-dim) transition-colors hover:text-(--color-text)"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <a href="/cv/Enderson-Montana-CV.pdf" download class="btn-ghost px-3.5 py-1.5 text-xs">
+          <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+            ></path>
+          </svg>
+          CV
+        </a>
+      </li>
+    </ul>
+
+    <!-- Móvil: solo CV -->
+    <a
+      href="/cv/Enderson-Montana-CV.pdf"
+      download
+      class="btn-ghost px-3.5 py-1.5 text-xs md:hidden"
+    >
+      Descargar CV
+    </a>
+  </nav>
+</header>

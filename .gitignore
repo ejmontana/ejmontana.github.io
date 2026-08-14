@@ -1,0 +1,20 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# environment
+.env
+.env.*
+
+# os / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# artefactos de desarrollo (capturas de Playwright, CV suelto de la raíz)
+/*.png
+.playwright-mcp/
+/Enderson Montana CV.pdf

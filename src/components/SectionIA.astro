@@ -1,0 +1,116 @@
+---
+const cards = [
+  {
+    tag: 'orquestación',
+    tagClass: 'chip',
+    title: 'Agentes autónomos de desarrollo',
+    body: 'Diseñé y construí un orquestador de agentes de larga duración: hace polling de Linear y despacha sesiones autónomas de Claude Code en workspaces aislados que implementan el ticket, abren el PR, atienden el code review y mergean.',
+    bullets: [
+      'Concurrencia en dos niveles + reintentos con backoff exponencial',
+      'Detección de stalls y pool SSH para ejecución distribuida',
+      'TUI de monitoreo propia y contabilidad de tokens/costo · 144 tests',
+    ],
+  },
+  {
+    tag: 'MCP',
+    tagClass: 'chip-purple chip',
+    title: 'Servidores Model Context Protocol',
+    body: 'Servidor MCP de grado producción para SQL Server, publicado como paquete npm del equipo, y un MCP de Linear que inyecta credenciales sin exponerlas en el prompt.',
+    bullets: [
+      '7 tools: consulta, ejecución con confirmación, esquema, SPs',
+      'Clasificación de sentencias seguras/peligrosas + preview de filas',
+      'Auditoría automática en BD y backup previo de cada cambio',
+    ],
+  },
+  {
+    tag: 'IA en producto',
+    tagClass: 'chip-green chip',
+    title: 'RAG, triage y chatbots con guardrails',
+    body: 'IA embebida en productos empresariales reales: búsqueda semántica, clasificación y generación asistida sobre datos de negocio.',
+    bullets: [
+      'Triage de tickets de helpdesk con Gemini + contexto del negocio',
+      'Chatbot con tool-calling de solo lectura sobre BD multi-tenant',
+      'Límite de tokens, rate limiting y sanitización de entrada',
+    ],
+  },
+  {
+    tag: 'metodología',
+    tagClass: 'chip',
+    title: 'Spec-Driven Development y seguridad IA',
+    body: 'Definí el stack de desarrollo asistido por IA del equipo siguiendo AI-DLC de AWS, con spec-kit adoptado en más de 6 repos.',
+    bullets: [
+      'Constitución por repo + ciclo specify → plan → tasks → implement',
+      'Enforcement automático en CI en cada PR (speckit-validate)',
+      'Guía de seguridad: OWASP LLM Top 10, OWASP Agentic, Zero Trust',
+    ],
+  },
+];
+
+const pipeline = [
+  'Ticket en Linear',
+  'Orquestador',
+  'Agentes Claude Code',
+  'PR + review',
+  'CI + speckit-validate',
+  'AWS',
+];
+---
+
+<section id="ia" class="py-20 lg:py-28">
+  <div class="container-site">
+    <p class="eyebrow" data-reveal>// Ingeniería de IA</p>
+    <h2 class="mt-3 max-w-3xl text-3xl font-bold sm:text-4xl" data-reveal>
+      No uso IA como asistente: <span class="text-gradient">construyo los sistemas donde trabaja.</span>
+    </h2>
+    <p class="mt-4 max-w-2xl text-lg text-(--color-dim)" data-reveal>
+      Del ticket al deploy sin intervención manual — y con guardrails en cada paso.
+    </p>
+
+    <!-- Pipeline -->
+    <div
+      class="mt-10 flex flex-wrap items-center gap-x-2 gap-y-3 rounded-xl border border-(--color-line) bg-(--color-surface)/60 px-5 py-4"
+      data-reveal
+      role="img"
+      aria-label="Pipeline: ticket en Linear, orquestador, agentes Claude Code, PR y review, CI con speckit-validate, AWS"
+    >
+      {
+        pipeline.map((step, i) => (
+          <>
+            <span class="inline-flex items-center gap-2 font-mono text-xs text-(--color-text) sm:text-sm">
+              <span class="text-(--color-green)" aria-hidden="true">[{i + 1}]</span>
+              {step}
+            </span>
+            {i < pipeline.length - 1 && (
+              <span class="font-mono text-(--color-blue)" aria-hidden="true">
+                →
+              </span>
+            )}
+          </>
+        ))
+      }
+    </div>
+
+    <!-- Cards -->
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+      {
+        cards.map((card) => (
+          <article class="card p-6 lg:p-7" data-reveal>
+            <span class={card.tagClass}>{card.tag}</span>
+            <h3 class="mt-4 text-xl font-bold">{card.title}</h3>
+            <p class="mt-2.5 leading-relaxed text-(--color-dim)">{card.body}</p>
+            <ul class="mt-4 space-y-2">
+              {card.bullets.map((bullet) => (
+                <li class="flex gap-2.5 text-sm text-(--color-dim)">
+                  <span class="mt-0.5 text-(--color-green)" aria-hidden="true">
+                    ▸
+                  </span>
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
