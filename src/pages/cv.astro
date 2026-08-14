@@ -100,7 +100,7 @@ const educacion = [
   {
     titulo: 'Ingeniería Informática',
     inst: 'Universidad Alejandro de Humboldt',
-    detalle: 'Caracas, Venezuela · 10.º semestre (en curso)',
+    detalle: 'Caracas, Venezuela · Carrera culminada (título en trámite)',
   },
   {
     titulo: 'T.S.U. en Informática',
@@ -233,9 +233,15 @@ const educacion = [
         position: sticky;
         top: 0;
         background: #0b0f1a;
-        padding: 0.75rem 1rem;
+        padding: 0.75rem 1.25rem;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+      .cv-toolbar-actions {
+        display: flex;
         gap: 0.75rem;
       }
       .cv-toolbar a,
@@ -271,8 +277,10 @@ const educacion = [
   <body class="cv-page">
     <div class="cv-toolbar">
       <a href="/">← volver al portafolio</a>
-      <button onclick="window.print()">Imprimir / Guardar PDF</button>
-      <a href="/cv/Enderson-Montana-CV.pdf" download>Descargar PDF</a>
+      <div class="cv-toolbar-actions">
+        <button onclick="window.print()">Imprimir</button>
+        <a href="/cv/Enderson-Montana-CV.pdf" download>Descargar PDF</a>
+      </div>
     </div>
 
     <main class="cv-sheet">
